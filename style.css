@@ -17,7 +17,7 @@ body, html {
     font-family: 'Outfit', 'Inter', sans-serif;
     background-color: var(--bg-dark);
     color: var(--primary-color);
-    overflow-x: hidden;
+    overflow: hidden; /* No scrolling for video architecture */
     cursor: none;
 }
 
@@ -50,18 +50,43 @@ body, html {
     transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
 }
 
-/* Scroll Architecture */
-.scroll-container {
-    height: 600vh;
-}
-
-.sticky-viewport {
-    position: sticky;
-    top: 0;
+/* Video Architecture */
+.video-container {
+    position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
     background: var(--bg-dark);
+}
+
+/* Controls Overlay */
+.controls-overlay {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: none; /* Keep none to use custom cursor */
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000;
+    transform: scale(1.1);
 }
 
 /* Scenes */
@@ -73,7 +98,7 @@ body, html {
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
+    transition: opacity 1.5s ease, visibility 1.5s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,6 +110,16 @@ body, html {
     z-index: 10;
 }
 
+/* Ken Burns Animation */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1.0) translate(0, 0);
+    }
+    100% {
+        transform: scale(1.15) translate(-2%, -2%);
+    }
+}
+
 .bg-image {
     position: absolute;
     top: 0;
@@ -94,9 +129,15 @@ body, html {
     background-size: cover;
     background-position: center;
     filter: brightness(0.35) contrast(1.1);
-    transform: scale(1.15); 
     transform-origin: center;
     z-index: 1;
+    /* Apply continuous animation */
+    animation: kenBurns 20s infinite alternate ease-in-out;
+}
+
+/* Pause animation when container is paused */
+.video-container.paused .bg-image {
+    animation-play-state: paused;
 }
 
 .scene-content {
@@ -120,11 +161,19 @@ body, html {
     transform: translateY(40px) scale(0.98);
     opacity: 0;
     transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
+    /* Add slight delay for content entry after scene opacity */
+    transition-delay: 0.3s;
 }
 
 .scene.active .glass-panel {
     transform: translateY(0) scale(1);
     opacity: 1;
+}
+
+.scene.leaving .glass-panel {
+    transform: translateY(-40px) scale(0.98);
+    opacity: 0;
+    transition-delay: 0s;
 }
 
 .glass-panel.full-width {
