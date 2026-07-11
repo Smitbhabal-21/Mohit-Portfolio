@@ -1,267 +1,338 @@
 'use strict';
 
-/* ══ LOADER ═══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════
+   ZHA-INSPIRED PORTFOLIO — script.js
+   Mohit Manoj Pandarkame · Mumbai · 2025
+   ══════════════════════════════════════════════════════════ */
+
+/* ── 1. LOADER ─────────────────────────────────────────────
+   Slide the black panel UP once the page has loaded         */
 (function () {
   const loader = document.getElementById('loader');
-  const bar    = document.getElementById('loaderBar');
-  let pct = 0;
-  const iv = setInterval(() => {
-    pct += Math.random() * 18 + 4;
-    if (pct >= 100) { pct = 100; clearInterval(iv); }
-    bar.style.width = pct + '%';
-  }, 70);
+  if (!loader) return;
+
+  // Trigger the clip-path slide-up after fonts + images settle
   window.addEventListener('load', () => {
-    setTimeout(() => loader.classList.add('gone'), 700);
+    setTimeout(() => {
+      loader.classList.add('loaded');
+    }, 900);
+  });
+
+  // Fallback: remove after 3 s even if load never fires
+  setTimeout(() => loader.classList.add('loaded'), 3000);
+})();
+
+/* ── 2. CUSTOM CURSOR ──────────────────────────────────────
+   Dot follows mouse instantly; ring lerps behind it.        */
+(function () {
+  const dot  = document.getElementById('cur-dot');
+  const ring = document.getElementById('cur-ring');
+  if (!dot || !ring || window.matchMedia('(pointer: coarse)').matches) return;
+
+  let mx = -100, my = -100;   // target (mouse)
+  let rx = -100, ry = -100;   // ring current position
+
+  // Snap dot immediately
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+  }, { passive: true });
+
+  // Lerp ring
+  (function lerp() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(lerp);
+  })();
+
+  // Expand ring on interactive elements
+  const HOVER_SEL = 'a, button, [tabindex], .accord-trigger, .proj-card, .hero-cta, .contact-btn';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(HOVER_SEL)) {
+      document.body.classList.add('cursor-hover');
+    }
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(HOVER_SEL)) {
+      document.body.classList.remove('cursor-hover');
+    }
   });
 })();
 
-/* ══ NAV ═══════════════════════════════════════════════════ */
+/* ── 3. HAMBURGER / MOBILE MENU ────────────────────────────  */
 (function () {
-  const nav = document.getElementById('nav');
-  const btn = document.getElementById('menuBtn');
-  const ovl = document.getElementById('mobileOverlay');
-  const cls = document.getElementById('mobileClose');
+  const btn  = document.getElementById('hamburger');
+  const menu = document.getElementById('mobile-menu');
+  if (!btn || !menu) return;
 
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('solid', window.scrollY > 60);
-  }, { passive: true });
-
-  function openMenu() {
-    ovl.classList.add('open');
+  function open() {
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded', 'true');
+    menu.classList.add('open');
+    menu.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
-  function closeMenu() {
-    ovl.classList.remove('open');
+  function close() {
+    btn.classList.remove('active');
+    btn.setAttribute('aria-expanded', 'false');
+    menu.classList.remove('open');
+    menu.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
-  btn.addEventListener('click', openMenu);
-  cls.addEventListener('click', closeMenu);
-  ovl.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', closeMenu));
+  btn.addEventListener('click', () => {
+    btn.classList.contains('active') ? close() : open();
+  });
+
+  // Close when a link is clicked
+  menu.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', close));
+
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) close();
+  });
 })();
 
-/* ══ HERO SLIDESHOW ════════════════════════════════════════ */
+/* ── 4. SMOOTH SCROLL (with sidebar offset) ─────────────── */
 (function () {
-  const slides = document.querySelectorAll('.hbs-slide');
-  const dots   = document.querySelectorAll('.hdot');
-  if (!slides.length) return;
-  let cur = 0, timer;
-
-  function goTo(i) {
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
-    cur = i;
-    slides[cur].classList.add('active');
-    dots[cur].classList.add('active');
-  }
-  function next() { goTo((cur + 1) % slides.length); }
-
-  timer = setInterval(next, 5800);
-  dots.forEach((d, i) => d.addEventListener('click', () => {
-    clearInterval(timer);
-    goTo(i);
-    timer = setInterval(next, 5800);
-  }));
-})();
-
-/* ══ PARTICLE CANVAS ═══════════════════════════════════════ */
-(function () {
-  const cv  = document.getElementById('heroCanvas');
-  if (!cv) return;
-  const ctx = cv.getContext('2d');
-  let W, H, pts = [];
-
-  function resize() {
-    W = cv.width  = cv.offsetWidth;
-    H = cv.height = cv.offsetHeight;
-  }
-
-  class Pt {
-    constructor() { this.reset(true); }
-    reset(init) {
-      this.x  = Math.random() * W;
-      this.y  = init ? Math.random() * H : H + 10;
-      this.vx = (Math.random() - 0.5) * 0.25;
-      this.vy = -(Math.random() * 0.4 + 0.1);
-      this.r  = Math.random() * 1.4 + 0.3;
-      this.a  = Math.random() * 0.45 + 0.08;
-    }
-    update() {
-      this.x += this.vx; this.y += this.vy;
-      if (this.y < -10) this.reset(false);
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(232,184,109,${this.a})`;
-      ctx.fill();
-    }
-  }
-
-  function init() {
-    resize();
-    pts = Array.from({ length: 90 }, () => new Pt());
-  }
-  function loop() {
-    ctx.clearRect(0, 0, W, H);
-    pts.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(loop);
-  }
-  window.addEventListener('resize', resize, { passive: true });
-  init(); loop();
-})();
-
-/* ══ REVEAL ON SCROLL ══════════════════════════════════════ */
-(function () {
-  const els = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  els.forEach(el => io.observe(el));
+  });
 })();
 
-/* ══ COUNTER ANIMATION ═════════════════════════════════════ */
+/* ── 5. HERO IMAGE SCALE-IN ─────────────────────────────── */
 (function () {
-  const counters = document.querySelectorAll('[data-target]');
+  const img = document.querySelector('.hero-img');
+  if (!img) return;
+  if (img.complete) {
+    img.classList.add('loaded');
+  } else {
+    img.addEventListener('load', () => img.classList.add('loaded'));
+  }
+})();
+
+/* ── 6. REVEAL ANIMATIONS (IntersectionObserver) ─────────
+   Handles: .reveal-up, .reveal-text, .reveal-clip         */
+(function () {
+  const EASE_DELAY = el => parseFloat(el.dataset.delay || 0);
+
+  // reveal-up and reveal-text
+  const upEls = document.querySelectorAll('.reveal-up, .reveal-text');
+  const upIO  = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const delay = EASE_DELAY(el);
+      setTimeout(() => el.classList.add('visible'), delay);
+      upIO.unobserve(el);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+  upEls.forEach(el => upIO.observe(el));
+
+  // reveal-clip (hero headline spans) — fire on page load, not scroll
+  function revealHeroClips() {
+    document.querySelectorAll('.reveal-clip').forEach(el => {
+      const delay = parseInt(el.dataset.delay || 0, 10);
+      // Wait for loader to finish (≈900ms) + element's own delay
+      setTimeout(() => el.classList.add('visible'), 1000 + delay);
+    });
+  }
+  revealHeroClips();
+
+  // hero-eyebrow, hero-sub, hero-cta (reveal-text inside hero)
+  function revealHeroTexts() {
+    document.querySelectorAll('#hero .reveal-text').forEach(el => {
+      const delay = parseInt(el.dataset.delay || 0, 10);
+      setTimeout(() => el.classList.add('visible'), 1100 + delay);
+    });
+  }
+  revealHeroTexts();
+})();
+
+/* ── 7. ACCORDION ──────────────────────────────────────────
+   Click to open/close; only one open at a time.            */
+(function () {
+  const items    = document.querySelectorAll('.accord-item');
+  const triggers = document.querySelectorAll('.accord-trigger');
+  if (!triggers.length) return;
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item      = trigger.closest('.accord-item');
+      const isOpen    = item.classList.contains('open');
+
+      // Close all
+      items.forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.accord-trigger').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle clicked
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
+/* ── 8. HORIZONTAL SCROLL GALLERY ─────────────────────────
+   Maps vertical scroll progress inside .horiz-outer to a
+   translateX on .horiz-track.                               */
+(function () {
+  const outer = document.getElementById('horiz-outer');
+  const track = document.getElementById('horiz-track');
+  if (!outer || !track) return;
+
+  // On mobile (<768px) skip horizontal scroll
+  const mq = window.matchMedia('(max-width: 767px)');
+  if (mq.matches) return;
+
+  let ticking = false;
+
+  function updateScroll() {
+    const outerRect  = outer.getBoundingClientRect();
+    const outerH     = outer.offsetHeight;
+    const innerH     = window.innerHeight;
+
+    // How far we are into the sticky section (0 → 1)
+    const scrolled   = -outerRect.top;            // px scrolled inside outer
+    const maxScroll  = outerH - innerH;           // total scrollable distance
+    const progress   = Math.min(Math.max(scrolled / maxScroll, 0), 1);
+
+    // Width of the track vs viewport
+    const trackW     = track.scrollWidth;
+    const maxTransX  = -(trackW - window.innerWidth + 80); // 80px right pad
+
+    const tx = progress * maxTransX;
+    track.style.transform = `translateX(${tx}px)`;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Initial call
+  updateScroll();
+})();
+
+/* ── 9. STATS COUNTER ANIMATION ───────────────────────────
+   Counts up numeric value when stat enters viewport.       */
+(function () {
+  const statNums = document.querySelectorAll('.stat-num[data-target]');
+  if (!statNums.length) return;
+
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       const el  = e.target;
       const end = parseInt(el.dataset.target, 10);
-      const dur = 1600;
+      const dur = 1800;
       const t0  = performance.now();
+
       function tick(now) {
         const elapsed = Math.min(now - t0, dur);
-        const eased   = 1 - Math.pow(1 - elapsed / dur, 3);
-        el.textContent = Math.round(eased * end).toLocaleString();
+        const eased   = 1 - Math.pow(1 - elapsed / dur, 4); // quartic ease-out
+        const val     = Math.round(eased * end);
+        el.textContent = val.toLocaleString() + (end === 18 ? '+' : '');
         if (elapsed < dur) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
       io.unobserve(el);
     });
   }, { threshold: 0.5 });
-  counters.forEach(c => io.observe(c));
+
+  statNums.forEach(n => io.observe(n));
 })();
 
-/* ══ SKILL BARS ════════════════════════════════════════════ */
+/* ── 10. ACTIVE NAV LINK HIGHLIGHT ────────────────────────
+   Highlight sidebar nav dot when section is in view.       */
 (function () {
-  const bars = document.querySelectorAll('.sb-fill');
+  const sections  = document.querySelectorAll('main > section[id]');
+  const navLinks  = document.querySelectorAll('#sidebar .nav-link');
+  if (!navLinks.length) return;
+
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
-      e.target.style.width = e.target.dataset.w + '%';
-      io.unobserve(e.target);
-    });
-  }, { threshold: 0.3 });
-  bars.forEach(b => io.observe(b));
-})();
-
-/* ══ PROJECT FILTER ════════════════════════════════════════ */
-(function () {
-  const btns  = document.querySelectorAll('.pf-btn');
-  const cards = document.querySelectorAll('.proj-card');
-  if (!btns.length) return;
-
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      cards.forEach(c => {
-        const match = filter === 'all' || c.dataset.cat === filter;
-        c.classList.toggle('hidden', !match);
+      navLinks.forEach(l => {
+        const isMatch = l.getAttribute('href') === '#' + e.target.id;
+        l.classList.toggle('active', isMatch);
+        if (isMatch) l.querySelector('.nav-tick').style.color = 'var(--accent)';
+        else         l.querySelector('.nav-tick').style.color = '';
       });
     });
-  });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => io.observe(s));
 })();
 
-/* ══ PARALLAX MUMBAI FEATURE ═══════════════════════════════ */
+/* ── 11. MAGNETIC BUTTONS ──────────────────────────────────
+   Hero CTA and contact button subtly follow cursor.        */
 (function () {
-  const sec = document.querySelector('.mumbai-feature');
-  const img = sec ? sec.querySelector('img') : null;
-  if (!img) return;
-  window.addEventListener('scroll', () => {
-    const rect  = sec.getBoundingClientRect();
-    const ratio = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-    const shift = (ratio - 0.5) * 70;
-    img.style.transform = `scale(1.15) translateY(${shift}px)`;
-  }, { passive: true });
-})();
-
-/* ══ CONTRAST SECTION PARALLAX ═════════════════════════════ */
-(function () {
-  const panels = document.querySelectorAll('.contrast-panel img');
-  window.addEventListener('scroll', () => {
-    panels.forEach((img, i) => {
-      const rect  = img.closest('.contrast-panel').getBoundingClientRect();
-      const ratio = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-      const dir   = i === 0 ? 1 : -1;
-      const shift = (ratio - 0.5) * 30 * dir;
-      img.style.transform = `scale(1.1) translateX(${shift}px)`;
-    });
-  }, { passive: true });
-})();
-
-/* ══ CONTACT FORM ══════════════════════════════════════════ */
-(function () {
-  const form = document.getElementById('contactForm');
-  const sub  = document.getElementById('cfSubmit');
-  if (!form) return;
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    sub.innerHTML = '<span>Sent! Will be in touch ✓</span>';
-    sub.style.background = '#4caf8e';
-    sub.style.pointerEvents = 'none';
-    setTimeout(() => {
-      sub.innerHTML = '<span>Send Message</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
-      sub.style.background = '';
-      sub.style.pointerEvents = '';
-      form.reset();
-    }, 3500);
-  });
-})();
-
-/* ══ SMOOTH SCROLL ══════════════════════════════════════════ */
-(function () {
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (!t) return;
-      e.preventDefault();
-      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-})();
-
-/* ══ CURSOR GLOW ════════════════════════════════════════════ */
-(function () {
-  const g = document.createElement('div');
-  Object.assign(g.style, {
-    position: 'fixed', pointerEvents: 'none', zIndex: '9997',
-    width: '350px', height: '350px', borderRadius: '50%',
-    background: 'radial-gradient(circle, rgba(232,184,109,0.055) 0%, transparent 70%)',
-    transform: 'translate(-50%,-50%)',
-    transition: 'left 0.18s ease, top 0.18s ease',
-    top: '-400px', left: '-400px',
-  });
-  document.body.appendChild(g);
-  window.addEventListener('mousemove', e => {
-    g.style.left = e.clientX + 'px';
-    g.style.top  = e.clientY + 'px';
-  }, { passive: true });
-})();
-
-/* ══ MAGNETIC CTA BUTTONS ═══════════════════════════════════ */
-(function () {
-  document.querySelectorAll('.hbtn, .cf-submit, .nav-link-cta').forEach(btn => {
+  const magnets = document.querySelectorAll('.hero-cta, .contact-btn');
+  magnets.forEach(btn => {
     btn.addEventListener('mousemove', e => {
       const r  = btn.getBoundingClientRect();
-      const dx = (e.clientX - r.left - r.width  / 2) * 0.18;
-      const dy = (e.clientY - r.top  - r.height / 2) * 0.18;
-      btn.style.transform = `translate(${dx}px,${dy}px)`;
+      const dx = (e.clientX - r.left - r.width  / 2) * 0.22;
+      const dy = (e.clientY - r.top  - r.height / 2) * 0.22;
+      btn.style.transform = `translate(${dx}px, ${dy}px)`;
     });
-    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
   });
+})();
+
+/* ── 12. HERO PARALLAX (subtle image drift on scroll) ─────  */
+(function () {
+  const heroImg = document.querySelector('.hero-img');
+  if (!heroImg) return;
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    const shift = y * 0.25;
+    heroImg.style.transform = `scale(1) translateY(${shift}px)`;
+  }, { passive: true });
+})();
+
+/* ── 13. CURSOR GLOW SPOTLIGHT ─────────────────────────────
+   Ambient light that follows cursor — adds depth.          */
+(function () {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const glow = document.createElement('div');
+  Object.assign(glow.style, {
+    position:        'fixed',
+    pointerEvents:   'none',
+    zIndex:          '9990',
+    width:           '500px',
+    height:          '500px',
+    borderRadius:    '50%',
+    background:      'radial-gradient(circle, rgba(232,184,109,0.04) 0%, transparent 65%)',
+    transform:       'translate(-50%, -50%)',
+    left:            '-600px',
+    top:             '-600px',
+    transition:      'left 0.3s ease, top 0.3s ease',
+  });
+  document.body.appendChild(glow);
+
+  window.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  }, { passive: true });
 })();
