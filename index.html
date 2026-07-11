@@ -3,182 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohit Pandharkame - Architecture Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Mohit Pandharkame | Architecture & Design</title>
+    <meta name="description" content="Portfolio of Mohit Pandharkame, Architect specialising in high-rise residential, sustainable design, parametric architecture, and luxury interiors.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-follower"></div>
+    <div class="cursor"></div>
 
-    <div class="controls-overlay">
-        <button id="play-pause-btn" class="control-btn" aria-label="Pause/Play">
-            <svg id="pause-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-            <svg id="play-icon" style="display:none;" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-        </button>
+    <!-- Minimalist Navbar -->
+    <nav class="navbar">
+        <div class="nav-logo">MOHIT PANDHARKAME</div>
+        <div class="nav-links">
+            <a href="#" class="nav-link" data-target="0">VISION</a>
+            <a href="#" class="nav-link" data-target="2">EXPERIENCE</a>
+            <a href="#" class="nav-link" data-target="6">DESIGN</a>
+            <a href="#" class="nav-link" data-target="10">STUDIO</a>
+            <a href="#" class="nav-link" data-target="15">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- Bottom Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
     </div>
+    <!-- Scene counter -->
+    <div class="scene-counter" id="scene-counter">01 / 16</div>
 
-    <div class="video-container">
-        
-        <!-- Scene 1 -->
-        <div class="scene" id="scene-0">
-            <div class="bg-image" style="background-image: url('mumbai_skyline.png');"></div>
-            <div class="scene-content">
-                <div class="scene-text glass-panel">
-                    <h1>MOHIT PANDHARKAME</h1>
-                    <h2>ARCHITECTURE</h2>
-                    <div class="summary">
-                        <p>Summary: Dedicated individual specializing in time management, and quick and efficient problem solving skills. Experience in handling client meetings and coordinating with contractors and other individuals on a daily basis. Trying to find a place which provide me alot of responsibilities and opportunities encouraging me to put my best foot forward.</p>
-                        <p>Hard working student experience and extensive knowledge of core subject matter. Meticulous and detail-oriented with excellent observational, organizational and communication skills.</p>
-                        <p>Sincere and passionate job seeker with strong organizational skills eager to secure a position. Provide greater value to the team than recieved.</p>
-                    </div>
+    <div class="scroll-container">
+        <div class="sticky-viewport">
+
+            <!-- Scene 01: Aerial -->
+            <div class="scene" id="scene-0">
+                <div class="bg-wrapper">
+                    <video src="video_aerial.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Scene 2 -->
-        <div class="scene" id="scene-1">
-            <div class="bg-image" style="background-image: url('mumbai_tower.png');"></div>
-            <div class="scene-content">
-                <div class="scene-text glass-panel full-width">
-                    <div class="job-grid">
-                        <div class="job-item">
-                            <h3 class="job-title">INTERN ARCHITECT</h3>
-                            <p class="job-company">UPALEKAR SADEKAR ARCHITECTS (UPSA), Mumbai. (2024-09 - 2025-03)</p>
-                            <ul class="job-list">
-                                <li>High rise residential projects in Mumbi, Manglore.</li>
-                                <li>Prepare floor plans and sections For Design stage, Development stage, Working drawing and GFC Stage.</li>
-                                <li>Design participation and vendor meetings.</li>
-                                <li>Curated 3d and rendered Presentations</li>
-                                <li>Architectural design interventions with critical thinking for zoning and site planning.</li>
-                                <li>Team meetings to resolve technical and project issues for services and on site deviations.</li>
-                                <li>Producing working drawings and GFC on site for construction.</li>
-                                <li>Material selection and Detailing in GFC.</li>
-                            </ul>
-                        </div>
-                        <div class="job-item">
-                            <h3 class="job-title">Intern Architect</h3>
-                            <p class="job-company">Urban Design Firm (UD+AC), Mumabai (2024-09 - 2025-03)</p>
-                            <ul class="job-list">
-                                <li>Drafted mockups and submitted them for review.</li>
-                                <li>Designed custom furniture adapted to floor plans, working closely with multiple furniture vendors.</li>
-                                <li>Prepared various exhibits for attorneys for public meetings, zoning commission meetings and legal resolutions.</li>
-                                <li>Communicated with vendors and contractors to incorporate input into project designs.</li>
-                                <li>Attended team meetings to resolve technical and project issues and review project schedules.</li>
-                                <li>Used critical thinking to break down problems, evaluate solutions and make decisions.</li>
-                                <li>Delivered services to customer locations within specific timeframes.</li>
-                                <li>Participated in team-building activities to enhance working relationships.</li>
-                            </ul>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h1 class="massive-title anim-item">MOHIT PANDHARKAME</h1>
+                        <h2 class="sub-title anim-item">ARCHITECTURE & DESIGN</h2>
+                        <div class="scroll-prompt anim-item">
+                            <span>Dive In</span>
+                            <div class="arrow-down"></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Scene 3 -->
-        <div class="scene" id="scene-2">
-            <div class="bg-image" style="background-image: url('interior.png');"></div>
-            <div class="scene-content">
-                <div class="scene-text glass-panel full-width">
-                    <div class="job-grid">
-                        <div class="job-item">
-                            <h3 class="job-title">ARCHITECTRAL FREELANCING</h3>
-                            <p class="job-company">Mumbai. (2022-04 - 2025-03)</p>
-                            <ul class="job-list">
-                                <li>Delivered 5+ Architecture and Interior Design projects in 3 years of duration.</li>
-                                <li>Projects ranging from Diagnostics Labs, Residential Interior design, Co-working Spaces, Bungalows, etc</li>
-                                <li>Making Client Meets, Closing Fee Discussion, Acquiring Projects, Networking, making detailed Quotations and BOQs, Design Discussion, Vendor selection and meets to delivering the project.</li>
-                            </ul>
+            <!-- Scene 02: Ground (Vision) -->
+            <div class="scene" id="scene-1">
+                <div class="bg-wrapper">
+                    <video src="video_ground.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">THE VISION</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Dedicated architect specialising in integrated design and rapid problem solving.</p>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Meticulous and detail-oriented with extensive experience coordinating clients and contractors from concept to construction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 03: Lobby (Experience 1) -->
+            <div class="scene" id="scene-2">
+                <div class="bg-wrapper">
+                    <video src="video_lobby.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">EXPERIENCE</h3>
+                        <div class="job-block anim-item">
+                            <h4 class="job-title">Intern Architect</h4>
+                            <p class="job-meta">UPALEKAR SADEKAR ARCHITECTS (UPSA) | 2024 – 2025</p>
+                            <p class="body-text">Designed high-rise residential projects. Prepared floor plans and working drawings across all development stages.</p>
                         </div>
-                        <div class="job-item">
-                            <h3 class="job-title">Intern Interior Designer</h3>
-                            <p class="job-company">House Of Bricks, Mumbai (2022-11 - 2024-09)</p>
-                            <ul class="job-list">
-                                <li>Developed space planning concepts, color palette selections and textile presentations.</li>
-                                <li>Developed key client relationships, providing design solutions that met needs and budgets without compromising quality or design intent.</li>
-                                <li>Led interior design across conceptual, schematic, design development and construction document phases.</li>
-                                <li>Prepared product and layout documents implementing diverse design concepts.</li>
-                                <li>Defined space requirements from schematic design to construction phase and installation.</li>
-                                <li>Designed floor plans, elevations, 3D perspective views and material boards for review and presentation.</li>
-                                <li>Created professional presentations using 3d renders to creatively communicate design intent and direction.</li>
-                            </ul>
+                        <div class="job-block anim-item">
+                            <h4 class="job-title">Intern Architect</h4>
+                            <p class="job-meta">Urban Design Firm (UD+AC) | 2024 – 2025</p>
+                            <p class="body-text">Drafted technical mockups, designed custom interior furniture, and prepared major public meeting exhibits.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Scene 4 -->
-        <div class="scene" id="scene-3">
-            <div class="bg-image" style="background-image: url('mumbai_apartment.png');"></div>
-            <div class="scene-content">
-                <div class="scene-text glass-panel">
-                    <h2>SKILLS</h2>
-                    <div class="skills-grid">
-                        <span class="skill-tag">Relationship building</span>
-                        <span class="skill-tag">Project specifications</span>
-                        <span class="skill-tag">Integrated design</span>
-                        <span class="skill-tag">Time management</span>
-                        <span class="skill-tag">Budgeting</span>
-                        <span class="skill-tag">Autocad</span>
-                        <span class="skill-tag">Sketchup</span>
-                        <span class="skill-tag">Rhino</span>
-                        <span class="skill-tag">Lumion</span>
-                        <span class="skill-tag">Twinmotion</span>
-                        <span class="skill-tag">Vray</span>
-                        <span class="skill-tag">Photoshop</span>
-                        <span class="skill-tag">Premiere pro</span>
-                        <span class="skill-tag">Illustrator</span>
-                    </div>
+            <!-- Scene 04: Amenities (Projects) -->
+            <div class="scene" id="scene-3">
+                <div class="bg-wrapper">
+                    <video src="video_amenities.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Scene 5 -->
-        <div class="scene" id="scene-4">
-            <div class="bg-image" style="background-image: url('blueprint.png');"></div>
-            <div class="scene-content">
-                <div class="scene-text glass-panel full-width">
-                    <div class="job-grid">
-                        <div class="job-item">
-                            <h3 class="job-title">B Arch (student): Architecture</h3>
-                            <p class="job-company">Academy of Architecture - Mumbai (2021-06 - 2025-04)</p>
-                            <ul class="job-list">
-                                <li>Elected for CR post in the first year of architecture.</li>
-                                <li>Started my first intership in Sem 5 in an interior design firm working in 3d visualization, 3d modeling, interior design solutions, furniture design, etc.</li>
-                                <li>I'm an enthusiast and passionate for Architecture and design with a relevant experience of 3 years in architecture internship and freelancing providing Critical thinking, Time management and Curated decision making.</li>
-                            </ul>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">PROJECTS</h3>
+                        <div class="job-block anim-item">
+                            <h4 class="job-title">Freelance Architect</h4>
+                            <p class="job-meta">Independent | 2022 – 2025</p>
+                            <p class="body-text">Delivered 5+ residential and commercial projects. Managed client acquisition, fee negotiation, and full project lifecycle.</p>
                         </div>
-                        <div class="job-item">
-                            <h3 class="job-title">Social Media Head (Creative Team)</h3>
-                            <p class="job-company">Student Council, Mumbai (2022-08 - 2022-11)</p>
-                            <ul class="job-list">
-                                <li>Developed creative design for print materials, banners and signs.</li>
-                                <li>Used Photoshop and Illustrator to develop posts and story designs.</li>
-                                <li>Used Premiere pro to create videos and animations for College's YouTube channel.</li>
-                                <li>Conceptualized and developed graphics products for Instagram feed, showcasing college works and confluence projects using various softwares and collaborating with many individuals.</li>
-                            </ul>
+                        <div class="job-block anim-item">
+                            <h4 class="job-title">Intern Interior Designer</h4>
+                            <p class="job-meta">House Of Bricks | 2022 – 2024</p>
+                            <p class="body-text">Led schematic design, space planning, and construction documentation for luxury interiors.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Scene 6 -->
-        <div class="scene" id="scene-5">
-            <div class="bg-image" style="background-image: url('mumbai_skyline.png');"></div>
-            <div class="scene-content">
-                <div class="scene-text glass-panel contact-panel">
-                    <h2>CONTACT</h2>
-                    <p><strong>Address:</strong> Mumbai, India 400091</p>
-                    <p><strong>Phone:</strong> 9920932997</p>
-                    <p><strong>E-mail:</strong> pandharkamemohit@gmail.com</p>
+            <!-- Scene 05: Rooms (Skills & Education) -->
+            <div class="scene" id="scene-4">
+                <div class="bg-wrapper">
+                    <video src="video_rooms.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">CAPABILITIES</h3>
+                        <div class="skills-grid anim-item" style="justify-content: center;">
+                            <span>AutoCAD</span><span>SketchUp</span><span>Rhino</span>
+                            <span>Lumion</span><span>V-Ray</span><span>Twinmotion</span>
+                            <span>Photoshop</span><span>Premiere Pro</span>
+                        </div>
+                        <h3 class="section-title anim-item" style="margin-top: 3rem;">EDUCATION</h3>
+                        <div class="job-block anim-item" style="margin-bottom: 0;">
+                            <h4 class="job-title">B.Arch</h4>
+                            <p class="job-meta">Academy of Architecture, Mumbai | 2021 – 2025</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <!-- Scene 06: Blueprint (Technical) -->
+            <div class="scene" id="scene-5">
+                <div class="bg-wrapper">
+                    <video src="video_blueprint.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">THE BLUEPRINT</h3>
+                        <p class="body-text anim-item" style="font-size: 1.1rem;">Every great structure begins as a precise technical drawing — a language only architects speak fluently.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>Working Drawings</span><span>Floor Plans</span><span>Sections</span>
+                            <span>Construction Docs</span><span>Site Planning</span><span>Detailing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 07: Facade (Sustainability) -->
+            <div class="scene" id="scene-6">
+                <div class="bg-wrapper">
+                    <video src="video_facade.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">SUSTAINABLE DESIGN</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Integrating biophilic principles and passive design strategies into every facade.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>Green Facades</span><span>Passive Cooling</span><span>LEED Principles</span><span>Biophilic Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 08: Courtyard (Urban Planning) -->
+            <div class="scene" id="scene-7">
+                <div class="bg-wrapper">
+                    <video src="video_courtyard.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">URBAN PLANNING</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Designing the spaces between buildings — the courtyards, plazas, and public realms.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>Masterplanning</span><span>Public Realm</span><span>Mixed-Use</span><span>Placemaking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 09: Corridor (Flow & Circulation) -->
+            <div class="scene" id="scene-8">
+                <div class="bg-wrapper">
+                    <video src="video_corridor.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">FLOW & CIRCULATION</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Every corridor, staircase, and transition space is choreographed.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>Space Planning</span><span>Wayfinding</span><span>Traffic Flow</span><span>Interior Architecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 10: Penthouse (Luxury Residential) -->
+            <div class="scene" id="scene-9">
+                <div class="bg-wrapper">
+                    <video src="video_penthouse.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">LUXURY RESIDENTIAL</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Crafting residences where every material and proportion has been considered.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>High-Rise Design</span><span>Luxury Finishes</span><span>Client Liaison</span><span>FF&E</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 11: Kitchen (Interior Detail) -->
+            <div class="scene" id="scene-10">
+                <div class="bg-wrapper">
+                    <video src="video_kitchen.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">INTERIOR CRAFT</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">The quality of a space lives in its details — the grain of the marble, the quality of light.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>Custom Millwork</span><span>Material Selection</span><span>Lighting Design</span><span>Schematic Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 12: Balcony (Urban Context) -->
+            <div class="scene" id="scene-11">
+                <div class="bg-wrapper">
+                    <video src="video_balcony.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">URBAN CONTEXT</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Each project is a conversation with the city around it — the skyline, the street, and the horizon.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>Site Analysis</span><span>Context Design</span><span>Zoning</span><span>Urban Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 13: Stairs (Parametric) -->
+            <div class="scene" id="scene-12">
+                <div class="bg-wrapper">
+                    <video src="video_stairs.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">PARAMETRIC DESIGN</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Using computational tools to generate forms impossible to conceive by hand.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>Rhino / Grasshopper</span><span>Generative Form</span><span>Structural Geometry</span><span>Fabrication</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 14: Office Studio (Process) -->
+            <div class="scene" id="scene-13">
+                <div class="bg-wrapper">
+                    <video src="video_office.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">THE STUDIO</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Every great project is built on rigorous process and teamwork.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>Client Meetings</span><span>Contractor Coordination</span><span>Presentations</span><span>Project Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 15: Vault (Infrastructure / Raw) -->
+            <div class="scene" id="scene-14">
+                <div class="bg-wrapper">
+                    <video src="video_vault.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h3 class="section-title anim-item">STRUCTURAL THINKING</h3>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">Before the marble and glass, there is raw concrete and structural logic.</p>
+                        <div class="skills-grid anim-item" style="justify-content: center; margin-top: 2rem;">
+                            <span>Structural Systems</span><span>Concrete</span><span>Infrastructure</span><span>Construction Methods</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 16: Night Aerial (Contact) -->
+            <div class="scene" id="scene-15">
+                <div class="bg-wrapper">
+                    <video src="video_night.mp4" autoplay loop muted playsinline class="bg-video"></video>
+                    <div class="overlay-gradient"></div>
+                </div>
+                <div class="content align-center">
+                    <div class="clean-panel text-center">
+                        <h1 class="massive-title anim-item">INITIATE CONTACT</h1>
+                        <p class="body-text anim-item" style="font-size: 1.25rem; margin-top: 2rem;">Mumbai, India 400091</p>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;">+91 99209 32997</p>
+                        <p class="body-text anim-item" style="font-size: 1.25rem;"><a href="mailto:pandharkamemohit@gmail.com" class="hover-link">pandharkamemohit@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <script src="script.js"></script>
