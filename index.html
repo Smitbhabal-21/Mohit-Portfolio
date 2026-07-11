@@ -1,412 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohit Manoj Pandarkame — Architect</title>
-  <meta name="description" content="Mohit Manoj Pandarkame — Architecture student at Rachana Sansad's Academy, specializing in modern residential, heritage restoration, and urban planning in Mumbai." />
-  <meta name="keywords" content="architect, Mumbai, architecture student, portfolio, Rachana Sansad, BArch, urban planning, heritage restoration" />
-  <meta property="og:title" content="Mohit Manoj Pandarkame — Architect" />
-  <meta property="og:description" content="Architecture portfolio — Mumbai, 2025" />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohit Pandharkame - Architecture Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
 
-  <!-- PAGE LOADER -->
-  <div id="loader" aria-hidden="true">
-    <div class="loader-bar"></div>
-    <div class="loader-text">MOHIT PANDARKAME</div>
-  </div>
+    <div class="scroll-container">
+        <div class="sticky-viewport">
+            
+            <!-- Scene 1 (0 - 16.6%) -->
+            <div class="scene" id="scene-0">
+                <div class="bg-image" style="background-image: url('mumbai_skyline.png');"></div>
+                <div class="scene-content">
+                    <div class="scene-text glass-panel">
+                        <h1>MOHIT PANDHARKAME</h1>
+                        <h2>ARCHITECTURE</h2>
+                        <div class="summary">
+                            <p>Summary: Dedicated individual specializing in time management, and quick and efficient problem solving skills. Experience in handling client meetings and coordinating with contractors and other individuals on a daily basis. Trying to find a place which provide me alot of responsibilities and opportunities encouraging me to put my best foot forward.</p>
+                            <p>Hard working student experience and extensive knowledge of core subject matter. Meticulous and detail-oriented with excellent observational, organizational and communication skills.</p>
+                            <p>Sincere and passionate job seeker with strong organizational skills eager to secure a position. Provide greater value to the team than recieved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  <!-- CUSTOM CURSOR -->
-  <div id="cur-dot" aria-hidden="true"></div>
-  <div id="cur-ring" aria-hidden="true"></div>
+            <!-- Scene 2 (16.6% - 33.3%) -->
+            <div class="scene" id="scene-1">
+                <div class="bg-image" style="background-image: url('mumbai_tower.png');"></div>
+                <div class="scene-content">
+                    <div class="scene-text glass-panel full-width">
+                        <div class="job-grid">
+                            <div class="job-item">
+                                <h3 class="job-title">INTERN ARCHITECT</h3>
+                                <p class="job-company">UPALEKAR SADEKAR ARCHITECTS (UPSA), Mumbai. (2024-09 - 2025-03)</p>
+                                <ul class="job-list">
+                                    <li>High rise residential projects in Mumbi, Manglore.</li>
+                                    <li>Prepare floor plans and sections For Design stage, Development stage, Working drawing and GFC Stage.</li>
+                                    <li>Design participation and vendor meetings.</li>
+                                    <li>Curated 3d and rendered Presentations</li>
+                                    <li>Architectural design interventions with critical thinking for zoning and site planning.</li>
+                                    <li>Team meetings to resolve technical and project issues for services and on site deviations.</li>
+                                    <li>Producing working drawings and GFC on site for construction.</li>
+                                    <li>Material selection and Detailing in GFC.</li>
+                                </ul>
+                            </div>
+                            <div class="job-item">
+                                <h3 class="job-title">Intern Architect</h3>
+                                <p class="job-company">Urban Design Firm (UD+AC), Mumabai (2024-09 - 2025-03)</p>
+                                <ul class="job-list">
+                                    <li>Drafted mockups and submitted them for review.</li>
+                                    <li>Designed custom furniture adapted to floor plans, working closely with multiple furniture vendors.</li>
+                                    <li>Prepared various exhibits for attorneys for public meetings, zoning commission meetings and legal resolutions.</li>
+                                    <li>Communicated with vendors and contractors to incorporate input into project designs.</li>
+                                    <li>Attended team meetings to resolve technical and project issues and review project schedules.</li>
+                                    <li>Used critical thinking to break down problems, evaluate solutions and make decisions.</li>
+                                    <li>Delivered services to customer locations within specific timeframes.</li>
+                                    <li>Participated in team-building activities to enhance working relationships.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  <!-- SIDEBAR NAVIGATION -->
-  <nav id="sidebar" aria-label="Main Navigation">
-    <a href="#hero" class="sidebar-logo" aria-label="Home">
-      <span>M</span><span>P</span>
-    </a>
-    <ul class="sidebar-links" role="list">
-      <li><a href="#about" class="nav-link" data-label="About" aria-label="About section"><span class="nav-tick">—</span></a></li>
-      <li><a href="#expertise" class="nav-link" data-label="Expertise" aria-label="Expertise section"><span class="nav-tick">—</span></a></li>
-      <li><a href="#projects" class="nav-link" data-label="Projects" aria-label="Projects section"><span class="nav-tick">—</span></a></li>
-      <li><a href="#stats" class="nav-link" data-label="Stats" aria-label="Stats section"><span class="nav-tick">—</span></a></li>
-      <li><a href="#contact" class="nav-link" data-label="Contact" aria-label="Contact section"><span class="nav-tick">—</span></a></li>
-    </ul>
-    <div class="sidebar-socials">
-      <a href="mailto:mohit.pandarkame@example.com" class="social-icon" aria-label="Email" title="Email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      </a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      </a>
-      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram" title="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      </a>
+            <!-- Scene 3 (33.3% - 50%) -->
+            <div class="scene" id="scene-2">
+                <div class="bg-image" style="background-image: url('interior.png');"></div>
+                <div class="scene-content">
+                    <div class="scene-text glass-panel full-width">
+                        <div class="job-grid">
+                            <div class="job-item">
+                                <h3 class="job-title">ARCHITECTRAL FREELANCING</h3>
+                                <p class="job-company">Mumbai. (2022-04 - 2025-03)</p>
+                                <ul class="job-list">
+                                    <li>Delivered 5+ Architecture and Interior Design projects in 3 years of duration.</li>
+                                    <li>Projects ranging from Diagnostics Labs, Residential Interior design, Co-working Spaces, Bungalows, etc</li>
+                                    <li>Making Client Meets, Closing Fee Discussion, Acquiring Projects, Networking, making detailed Quotations and BOQs, Design Discussion, Vendor selection and meets to delivering the project.</li>
+                                </ul>
+                            </div>
+                            <div class="job-item">
+                                <h3 class="job-title">Intern Interior Designer</h3>
+                                <p class="job-company">House Of Bricks, Mumbai (2022-11 - 2024-09)</p>
+                                <ul class="job-list">
+                                    <li>Developed space planning concepts, color palette selections and textile presentations.</li>
+                                    <li>Developed key client relationships, providing design solutions that met needs and budgets without compromising quality or design intent.</li>
+                                    <li>Led interior design across conceptual, schematic, design development and construction document phases.</li>
+                                    <li>Prepared product and layout documents implementing diverse design concepts.</li>
+                                    <li>Defined space requirements from schematic design to construction phase and installation.</li>
+                                    <li>Designed floor plans, elevations, 3D perspective views and material boards for review and presentation.</li>
+                                    <li>Created professional presentations using 3d renders to creatively communicate design intent and direction.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 4 (50% - 66.6%) -->
+            <div class="scene" id="scene-3">
+                <div class="bg-image" style="background-image: url('mumbai_apartment.png');"></div>
+                <div class="scene-content">
+                    <div class="scene-text glass-panel">
+                        <h2>SKILLS</h2>
+                        <div class="skills-grid">
+                            <span class="skill-tag">Relationship building</span>
+                            <span class="skill-tag">Project specifications</span>
+                            <span class="skill-tag">Integrated design</span>
+                            <span class="skill-tag">Time management</span>
+                            <span class="skill-tag">Budgeting</span>
+                            <span class="skill-tag">Autocad</span>
+                            <span class="skill-tag">Sketchup</span>
+                            <span class="skill-tag">Rhino</span>
+                            <span class="skill-tag">Lumion</span>
+                            <span class="skill-tag">Twinmotion</span>
+                            <span class="skill-tag">Vray</span>
+                            <span class="skill-tag">Photoshop</span>
+                            <span class="skill-tag">Premiere pro</span>
+                            <span class="skill-tag">Illustrator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 5 (66.6% - 83.3%) -->
+            <div class="scene" id="scene-4">
+                <div class="bg-image" style="background-image: url('blueprint.png');"></div>
+                <div class="scene-content">
+                    <div class="scene-text glass-panel full-width">
+                        <div class="job-grid">
+                            <div class="job-item">
+                                <h3 class="job-title">B Arch (student): Architecture</h3>
+                                <p class="job-company">Academy of Architecture - Mumbai (2021-06 - 2025-04)</p>
+                                <ul class="job-list">
+                                    <li>Elected for CR post in the first year of architecture.</li>
+                                    <li>Started my first intership in Sem 5 in an interior design firm working in 3d visualization, 3d modeling, interior design solutions, furniture design, etc.</li>
+                                    <li>I'm an enthusiast and passionate for Architecture and design with a relevant experience of 3 years in architecture internship and freelancing providing Critical thinking, Time management and Curated decision making.</li>
+                                </ul>
+                            </div>
+                            <div class="job-item">
+                                <h3 class="job-title">Social Media Head (Creative Team)</h3>
+                                <p class="job-company">Student Council, Mumbai (2022-08 - 2022-11)</p>
+                                <ul class="job-list">
+                                    <li>Developed creative design for print materials, banners and signs.</li>
+                                    <li>Used Photoshop and Illustrator to develop posts and story designs.</li>
+                                    <li>Used Premiere pro to create videos and animations for College's YouTube channel.</li>
+                                    <li>Conceptualized and developed graphics products for Instagram feed, showcasing college works and confluence projects using various softwares and collaborating with many individuals.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 6 (83.3% - 100%) -->
+            <div class="scene" id="scene-5">
+                <div class="bg-image" style="background-image: url('mumbai_skyline.png');"></div>
+                <div class="scene-content">
+                    <div class="scene-text glass-panel contact-panel">
+                        <h2>CONTACT</h2>
+                        <p><strong>Address:</strong> Mumbai, India 400091</p>
+                        <p><strong>Phone:</strong> 9920932997</p>
+                        <p><strong>E-mail:</strong> pandharkamemohit@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </nav>
 
-  <!-- MOBILE HAMBURGER -->
-  <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-
-  <!-- MOBILE MENU OVERLAY -->
-  <div id="mobile-menu" aria-hidden="true">
-    <ul role="list">
-      <li><a href="#about" class="mob-link">About</a></li>
-      <li><a href="#expertise" class="mob-link">Expertise</a></li>
-      <li><a href="#projects" class="mob-link">Projects</a></li>
-      <li><a href="#stats" class="mob-link">Stats</a></li>
-      <li><a href="#contact" class="mob-link">Contact</a></li>
-    </ul>
-  </div>
-
-  <!-- TOP RIGHT CTA -->
-  <a href="#contact" id="available-cta" aria-label="Currently available for 2025 projects">
-    <span class="pulse-dot" aria-hidden="true"></span>
-    Available 2025
-  </a>
-
-  <!-- MAIN CONTENT -->
-  <main id="main-content">
-
-    <!-- HERO -->
-    <section id="hero" aria-label="Hero">
-      <div class="hero-img-wrap">
-        <img src="mumbai_skyline.png" alt="Mumbai skyline — architectural vision" class="hero-img" fetchpriority="high" />
-        <div class="hero-overlay" aria-hidden="true"></div>
-      </div>
-      <div class="hero-content">
-        <div class="hero-eyebrow reveal-text">
-          <span>Architecture</span>
-          <span class="sep" aria-hidden="true">·</span>
-          <span>Mumbai</span>
-          <span class="sep" aria-hidden="true">·</span>
-          <span>2025</span>
-        </div>
-        <h1 class="hero-headline">
-          <span class="reveal-clip" data-delay="0">Space</span>
-          <em class="reveal-clip italic-line" data-delay="100">is the</em>
-          <span class="reveal-clip" data-delay="200">medium,</span>
-          <em class="reveal-clip italic-line" data-delay="300">form is the</em>
-          <span class="reveal-clip" data-delay="400">language.</span>
-        </h1>
-        <p class="hero-sub reveal-text" data-delay="600">
-          Mohit Manoj Pandarkame<br/>
-          <span class="light">BArch — Rachana Sansad, Mumbai</span>
-        </p>
-        <a href="#projects" class="hero-cta reveal-text" data-delay="800" aria-label="View architecture projects">
-          View Work
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-      <div class="hero-scroll-hint" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" aria-labelledby="about-heading">
-      <div class="about-inner">
-        <div class="about-left">
-          <div class="ghost-number" aria-hidden="true">4</div>
-          <div class="about-img-wrap reveal-up">
-            <img src="mumbai_contrast.png" alt="Mohit Pandarkame — architectural perspective" loading="lazy" />
-          </div>
-        </div>
-        <div class="about-right reveal-up" data-delay="200">
-          <div class="section-label">About</div>
-          <h2 id="about-heading" class="about-headline">
-            Architecture<br/>
-            <em>is the will of an</em><br/>
-            epoch translated<br/>
-            into space.
-          </h2>
-          <div class="about-body">
-            <p>
-              I am a final-year architecture student at <strong>Rachana Sansad's Academy of Architecture</strong>, Mumbai — one of India's most prestigious architecture schools. My work sits at the intersection of contemporary form-making and contextual sensitivity.
-            </p>
-            <p>
-              As <strong>Student Council Treasurer</strong>, I have developed not just design acumen but leadership and financial stewardship. I believe architecture must speak to its users, its climate, its history.
-            </p>
-            <p>
-              From luxury towers in Bandra to heritage restoration in Fort district, from Dharavi's complex urban fabric to intimate penthouse interiors — each project is a unique conversation with place.
-            </p>
-          </div>
-          <div class="about-edu">
-            <div class="edu-label">Education</div>
-            <div class="edu-name">Rachana Sansad's Academy of Architecture</div>
-            <div class="edu-detail">Bachelor of Architecture · Jan 2021 – May 2025</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERTISE ACCORDION -->
-    <section id="expertise" aria-labelledby="expertise-heading">
-      <div class="expertise-header reveal-up">
-        <div class="section-label">Expertise</div>
-        <h2 id="expertise-heading">What I Do</h2>
-      </div>
-      <div class="accordion" role="list">
-
-        <div class="accord-item" role="listitem">
-          <button class="accord-trigger" aria-expanded="false" aria-controls="acc-panel-1" id="acc-btn-1">
-            <span class="accord-num">01</span>
-            <span class="accord-title">Modern Residential</span>
-            <span class="accord-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="accord-panel" id="acc-panel-1" role="region" aria-labelledby="acc-btn-1">
-            <div class="accord-content">
-              <div class="accord-img">
-                <img src="mumbai_tower.png" alt="Modern residential architecture" loading="lazy" />
-              </div>
-              <div class="accord-desc">
-                <p>Designing contemporary living spaces that balance luxury, sustainability, and the unique demands of Mumbai's high-density urban environment. From high-rise towers to boutique residential complexes, I create spaces that enhance quality of life.</p>
-                <ul class="skill-tags" aria-label="Skills used">
-                  <li>AutoCAD</li><li>Revit/BIM</li><li>SketchUp</li><li>Lumion</li><li>3D Visualization</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="accord-item" role="listitem">
-          <button class="accord-trigger" aria-expanded="false" aria-controls="acc-panel-2" id="acc-btn-2">
-            <span class="accord-num">02</span>
-            <span class="accord-title">Heritage Restoration</span>
-            <span class="accord-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="accord-panel" id="acc-panel-2" role="region" aria-labelledby="acc-btn-2">
-            <div class="accord-content">
-              <div class="accord-img">
-                <img src="mumbai_heritage.png" alt="Heritage building restoration" loading="lazy" />
-              </div>
-              <div class="accord-desc">
-                <p>Mumbai's colonial and vernacular heritage is under constant pressure from development. I specialize in adaptive reuse and sensitive restoration — breathing new life into historic structures while preserving their cultural memory and architectural integrity.</p>
-                <ul class="skill-tags" aria-label="Skills used">
-                  <li>Heritage Documentation</li><li>Conservation Principles</li><li>Adaptive Reuse</li><li>Structural Analysis</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="accord-item" role="listitem">
-          <button class="accord-trigger" aria-expanded="false" aria-controls="acc-panel-3" id="acc-btn-3">
-            <span class="accord-num">03</span>
-            <span class="accord-title">Urban Planning</span>
-            <span class="accord-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="accord-panel" id="acc-panel-3" role="region" aria-labelledby="acc-btn-3">
-            <div class="accord-content">
-              <div class="accord-img">
-                <img src="mumbai_urban.png" alt="Urban planning masterplan" loading="lazy" />
-              </div>
-              <div class="accord-desc">
-                <p>Cities are living organisms. My urban planning work focuses on equitable, people-centred design — from large-scale masterplans like Dharavi to micro-interventions in Mumbai's complex chawl fabric. I believe in design that uplifts communities.</p>
-                <ul class="skill-tags" aria-label="Skills used">
-                  <li>Urban Design</li><li>GIS Mapping</li><li>Masterplanning</li><li>Community Engagement</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="accord-item" role="listitem">
-          <button class="accord-trigger" aria-expanded="false" aria-controls="acc-panel-4" id="acc-btn-4">
-            <span class="accord-num">04</span>
-            <span class="accord-title">Interior Design</span>
-            <span class="accord-icon" aria-hidden="true">+</span>
-          </button>
-          <div class="accord-panel" id="acc-panel-4" role="region" aria-labelledby="acc-btn-4">
-            <div class="accord-content">
-              <div class="accord-img">
-                <img src="mumbai_apartment.png" alt="Interior design" loading="lazy" />
-              </div>
-              <div class="accord-desc">
-                <p>The interior is where architecture becomes intimate. I craft interior environments that are both spatially generous and materially rich — balancing natural light, material texture, and spatial flow to create homes and workspaces that resonate.</p>
-                <ul class="skill-tags" aria-label="Skills used">
-                  <li>Interior Design</li><li>Material Boards</li><li>3ds Max</li><li>V-Ray</li><li>Enscape</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PROJECTS HORIZONTAL SCROLL -->
-    <section id="projects" aria-labelledby="projects-heading">
-      <div class="projects-intro reveal-up">
-        <div class="section-label">Selected Work</div>
-        <h2 id="projects-heading">Projects</h2>
-        <p class="projects-hint" aria-label="Scroll hint">Scroll to explore →</p>
-      </div>
-      <div class="horiz-outer" id="horiz-outer">
-        <div class="horiz-inner" id="horiz-inner">
-          <div class="horiz-track" id="horiz-track" role="list" aria-label="Project gallery">
-
-            <article class="proj-card" role="listitem" tabindex="0" aria-label="Project: Aurora Luxury Towers">
-              <div class="proj-num" aria-hidden="true">01</div>
-              <div class="proj-img-wrap">
-                <img src="mumbai_tower.png" alt="Aurora Luxury Towers, Bandra" loading="lazy" />
-              </div>
-              <div class="proj-info">
-                <div class="proj-tag">Modern Residential · Bandra</div>
-                <h3 class="proj-title">Aurora Luxury Towers</h3>
-                <p class="proj-desc">A 32-storey residential tower responding to Bandra's evolving skyline — balancing luxury amenities with biophilic design principles and cross-ventilation strategies suited to Mumbai's climate.</p>
-                <div class="proj-year">2024</div>
-              </div>
-            </article>
-
-            <article class="proj-card" role="listitem" tabindex="0" aria-label="Project: Fort District Restoration">
-              <div class="proj-num" aria-hidden="true">02</div>
-              <div class="proj-img-wrap">
-                <img src="mumbai_heritage.png" alt="Fort District Heritage Restoration" loading="lazy" />
-              </div>
-              <div class="proj-info">
-                <div class="proj-tag">Heritage Restoration · Fort</div>
-                <h3 class="proj-title">Fort District Restoration</h3>
-                <p class="proj-desc">Adaptive reuse of a Grade II heritage structure in Mumbai's historic Fort precinct — transforming a colonial-era warehouse into a mixed-use cultural hub while preserving original masonry and spatial hierarchy.</p>
-                <div class="proj-year">2024</div>
-              </div>
-            </article>
-
-            <article class="proj-card" role="listitem" tabindex="0" aria-label="Project: Dharavi Masterplan">
-              <div class="proj-num" aria-hidden="true">03</div>
-              <div class="proj-img-wrap">
-                <img src="mumbai_urban.png" alt="Dharavi Masterplan" loading="lazy" />
-              </div>
-              <div class="proj-info">
-                <div class="proj-tag">Urban Planning · Dharavi</div>
-                <h3 class="proj-title">Dharavi Masterplan</h3>
-                <p class="proj-desc">A community-led masterplan for one of Asia's largest informal settlements — proposing incremental densification strategies, public space networks, and livelihood integration without displacement.</p>
-                <div class="proj-year">2023</div>
-              </div>
-            </article>
-
-            <article class="proj-card" role="listitem" tabindex="0" aria-label="Project: Worli Penthouse Interior">
-              <div class="proj-num" aria-hidden="true">04</div>
-              <div class="proj-img-wrap">
-                <img src="mumbai_apartment.png" alt="Worli Penthouse Interior" loading="lazy" />
-              </div>
-              <div class="proj-info">
-                <div class="proj-tag">Interior Design · Worli</div>
-                <h3 class="proj-title">Worli Penthouse Interior</h3>
-                <p class="proj-desc">A 4,200 sq ft duplex penthouse overlooking the Bandra-Worli Sea Link — designed around a palette of warm terrazzo, black steel, and natural travertine, with floor-to-ceiling glazing framing the Arabian Sea.</p>
-                <div class="proj-year">2024</div>
-              </div>
-            </article>
-
-            <article class="proj-card" role="listitem" tabindex="0" aria-label="Project: Bandra Coastal Strip">
-              <div class="proj-num" aria-hidden="true">05</div>
-              <div class="proj-img-wrap">
-                <img src="mumbai_skyline.png" alt="Bandra Coastal Strip development" loading="lazy" />
-              </div>
-              <div class="proj-info">
-                <div class="proj-tag">Mixed-Use · Bandra</div>
-                <h3 class="proj-title">Bandra Coastal Strip</h3>
-                <p class="proj-desc">A 1.2 km public waterfront promenade and mixed-use development along Bandra's coastline — weaving retail, cultural pavilions, and open green space into a continuous activated edge along the sea.</p>
-                <div class="proj-year">2023</div>
-              </div>
-            </article>
-
-            <article class="proj-card" role="listitem" tabindex="0" aria-label="Project: Chawl Regeneration Study">
-              <div class="proj-num" aria-hidden="true">06</div>
-              <div class="proj-img-wrap">
-                <img src="mumbai_contrast.png" alt="Chawl Regeneration Study" loading="lazy" />
-              </div>
-              <div class="proj-info">
-                <div class="proj-tag">Heritage + Modern · Central Mumbai</div>
-                <h3 class="proj-title">Chawl Regeneration Study</h3>
-                <p class="proj-desc">A thesis-adjacent research and design project examining the spatial logics of Mumbai's historic chawls — proposing a regenerative framework that upgrades infrastructure while retaining the communal courtyard typology central to chawl life.</p>
-                <div class="proj-year">2025</div>
-              </div>
-            </article>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATS -->
-    <section id="stats" aria-labelledby="stats-heading">
-      <h2 id="stats-heading" class="sr-only">Key Statistics</h2>
-      <div class="stats-inner">
-        <div class="stat-item reveal-up">
-          <div class="stat-num" data-target="18">0+</div>
-          <div class="stat-label">Skills &amp; Tools Mastered</div>
-        </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat-item reveal-up" data-delay="150">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Years of Study</div>
-        </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat-item reveal-up" data-delay="300">
-          <div class="stat-num">2025</div>
-          <div class="stat-label">Graduating Class</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" aria-labelledby="contact-heading">
-      <div class="contact-inner">
-        <div class="contact-left reveal-up">
-          <div class="section-label">Contact</div>
-          <h2 id="contact-heading">
-            Let's build<br/>
-            <em>something</em><br/>
-            extraordinary.
-          </h2>
-          <p class="contact-sub">Currently open to internship opportunities, graduate roles, and collaborative studio projects across India and internationally.</p>
-        </div>
-        <div class="contact-right reveal-up" data-delay="200">
-          <div class="contact-info">
-            <div class="ci-item">
-              <div class="ci-label">Email</div>
-              <a href="mailto:mohit.pandarkame@example.com" class="ci-val">mohit.pandarkame<br/>@example.com</a>
-            </div>
-            <div class="ci-item">
-              <div class="ci-label">Location</div>
-              <div class="ci-val">Mumbai, Maharashtra<br/>India</div>
-            </div>
-            <div class="ci-item">
-              <div class="ci-label">Status</div>
-              <div class="ci-val status-val">
-                <span class="pulse-dot" aria-hidden="true"></span>
-                Available for 2025
-              </div>
-            </div>
-          </div>
-          <a href="mailto:mohit.pandarkame@example.com" class="contact-btn" aria-label="Send an email to Mohit Pandarkame">
-            Start a Conversation
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer id="footer" role="contentinfo">
-    <div class="footer-line" aria-hidden="true"></div>
-    <div class="footer-text">
-      Mohit Manoj Pandarkame&nbsp;&nbsp;—&nbsp;&nbsp;Architecture&nbsp;&nbsp;—&nbsp;&nbsp;Mumbai&nbsp;&nbsp;—&nbsp;&nbsp;2025
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
